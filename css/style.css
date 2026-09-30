@@ -62,7 +62,7 @@ h1 em{font-style:normal;color:#63B894}
 .hero__img::before{
   content:"";
   position:absolute;
-  inset:3% -2% 9%;
+  inset:3% -2% 0;
   z-index:-2;
   border:1px solid rgb(99 184 148 / .16);
   border-radius:28px;
@@ -99,8 +99,8 @@ h1 em{font-style:normal;color:#63B894}
   filter:
     drop-shadow(0 18px 34px rgb(0 0 0 / .34))
     drop-shadow(0 0 20px rgb(99 184 148 / .055));
-  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 80%,rgb(0 0 0 / .98) 86%,rgb(0 0 0 / .72) 93%,transparent 100%);
-  mask-image:linear-gradient(to bottom,#000 0%,#000 80%,rgb(0 0 0 / .98) 86%,rgb(0 0 0 / .72) 93%,transparent 100%)
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 84%,rgb(0 0 0 / .98) 89%,rgb(0 0 0 / .82) 94%,rgb(0 0 0 / .35) 98%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 0%,#000 84%,rgb(0 0 0 / .98) 89%,rgb(0 0 0 / .82) 94%,rgb(0 0 0 / .35) 98%,transparent 100%)
 }
 
 /* trabalhos */
