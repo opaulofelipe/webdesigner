@@ -61,8 +61,6 @@ h2{font-size:clamp(1.8rem,4vw,3rem);letter-spacing:-.035em;font-weight:600;line-
 .card__open::after{content:"";position:absolute;inset:0;z-index:1}
 .card__open:focus-visible::after{outline:2px solid var(--accent);outline-offset:-2px;border-radius:var(--r)}
 .card__desc{color:var(--soft);font-size:.92rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.card__gh{position:relative;z-index:2;justify-self:start;margin-top:.4rem;font-size:.85rem;color:var(--muted);text-underline-offset:.25rem}
-.card__gh:hover{color:var(--accent)}
 @keyframes shimmer{to{background-position:-200% 0}}
 
 /* contato */
