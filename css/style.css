@@ -28,16 +28,29 @@ button{font:inherit;color:inherit;cursor:pointer}
 .nav a:hover{color:var(--ink)}
 
 /* hero */
-.hero{padding-block:clamp(3rem,9vw,7rem) clamp(2rem,6vw,5rem);display:grid;grid-template-columns:1fr auto;gap:clamp(2rem,6vw,5rem);align-items:center}
+.hero{
+  padding-block:clamp(3rem,9vw,7rem) clamp(2rem,6vw,5rem);
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  grid-template-areas:
+    "headline image"
+    "copy image";
+  column-gap:clamp(2rem,6vw,5rem);
+  row-gap:1.5rem;
+  align-items:center
+}
 h1{font-size:clamp(2.6rem,8vw,6.6rem);line-height:.98;letter-spacing:-.045em;font-weight:600;text-wrap:balance}
+.hero>h1{grid-area:headline;align-self:end}
 h1 em{font-style:normal;color:#63B894}
-.hero p{margin-top:1.5rem;color:var(--soft);font-size:clamp(1.05rem,1.6vw,1.25rem)}
+.hero__copy{grid-area:copy;align-self:start;max-width:62ch}
+.hero__copy p{color:var(--soft);font-size:clamp(1.05rem,1.6vw,1.25rem)}
 .cta{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
 .btn{display:inline-flex;align-items:center;min-height:48px;padding:.7rem 1.4rem;border:1px solid var(--line);border-radius:999px;font-weight:600;text-decoration:none;transition:transform .2s,background .2s,border-color .2s}
 .btn:hover{transform:translateY(-2px);border-color:var(--accent)}
 .btn--main{background:var(--ink);border-color:var(--ink);color:#0e0c0b}
 .btn--main:hover{background:var(--accent)}
 .hero__img{
+  grid-area:image;
   position:relative;
   isolation:isolate;
   width:clamp(210px,29vw,400px);
@@ -143,16 +156,23 @@ h2{font-size:clamp(1.8rem,4vw,3rem);letter-spacing:-.035em;font-weight:600;line-
 @media (max-width:700px){
   .hero{
     grid-template-columns:1fr;
-    padding-top:0;
-    gap:2rem
+    grid-template-areas:
+      "headline"
+      "image"
+      "copy";
+    padding-top:clamp(2rem,8vw,3.5rem);
+    gap:clamp(1.5rem,6vw,2.25rem)
+  }
+  .hero>h1{
+    width:100%;
+    align-self:auto
   }
   .hero__img{
     width:100vw;
     max-width:none;
     height:min(78svh,720px);
     aspect-ratio:auto;
-    margin-left:calc(50% - 50vw);
-    order:-1
+    margin-left:calc(50% - 50vw)
   }
   .hero__img::before{
     inset:0;
@@ -169,6 +189,9 @@ h2{font-size:clamp(1.8rem,4vw,3rem);letter-spacing:-.035em;font-weight:600;line-
     height:100%;
     object-fit:contain;
     object-position:center bottom
+  }
+  .hero__copy{
+    max-width:none
   }
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}.js .reveal{opacity:1;transform:none}}
