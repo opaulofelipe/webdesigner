@@ -69,7 +69,6 @@ function buildCard(p) {
       <div class="card__row"><span>${String(p.i + 1).padStart(2, "0")}</span><span class="tag"></span></div>
       <h3><button type="button" class="card__open">${esc(p.nome || pretty(p.repo))}</button></h3>
       <p class="card__desc"></p>
-      <a class="card__gh" href="${p.github}" target="_blank" rel="noopener">Código no GitHub ↗</a>
     </div>`;
   p.el = el;
   $(".card__open", el).addEventListener("click", () => p.live ? openViewer(p) : window.open(p.github, "_blank", "noopener"));
@@ -117,7 +116,6 @@ function openViewer(p) {
   current = p;
   $("#viewer-title").textContent = p.nome || pretty(p.repo);
   $("#v-ext").href = p.site;
-  $("#v-gh").href = p.github;
   frame.src = p.site;
   history.replaceState(null, "", "#/" + p.repo);
   if (!dlg.open) dlg.showModal();
