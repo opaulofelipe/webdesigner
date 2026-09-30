@@ -14,6 +14,7 @@ const REPOS = [
   "artesrupestres",
   "advogado",
    "globoterrestre",
+   "personaltrainer",
   // "nome-do-novo-repositorio",
 ];
 /* ======================================================== */
