@@ -1,195 +1,80 @@
 "use strict";
 
-/* ============================================================
-   REPOSITÓRIOS — adicione aqui e pronto.
-   Cada item vira um cartão automaticamente: nome, descrição,
-   linguagem e tópicos são lidos do GitHub.
-   Formato: "usuario/repositorio" (ou o link completo).
-   ============================================================ */
-const REPOSITORIOS = [
-  // "seu-usuario/seu-repositorio",
-];
+const $ = (selector, root = document) => root.querySelector(selector);
+const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
 
-const $ = (s, r = document) => r.querySelector(s);
-const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const PROJECTS = {
+  psicologa: {
+    title: "Marina Azevedo — Psicóloga Clínica",
+    url: "https://opaulofelipe.github.io/psicologa/"
+  },
+  artesrupestres: {
+    title: "Vestígios — Atlas de Arte Rupestre",
+    url: "https://opaulofelipe.github.io/artesrupestres/"
+  }
+};
 
-/* ---------- Dados do repositório (com cache de 1 h) ---------- */
-const TTL = 60 * 60 * 1000;
-async function metaRepo(dono, nome) {
-  const chave = `gh:${dono}/${nome}`.toLowerCase();
-  try {
-    const c = JSON.parse(localStorage.getItem(chave) || "null");
-    if (c && Date.now() - c.t < TTL) return c.d;
-  } catch { /* sem cache */ }
-  const d = await buscarJSON(`https://api.github.com/repos/${dono}/${nome}`);
-  const m = { name: d.name, description: d.description, language: d.language, topics: d.topics || [],
-    has_pages: d.has_pages, homepage: d.homepage, default_branch: d.default_branch };
-  try { localStorage.setItem(chave, JSON.stringify({ t: Date.now(), d: m })); } catch { /* ok */ }
-  return m;
+function initMenu() {
+  const button = $(".menu-btn");
+  const menu = $("#menu");
+  if (!button || !menu) return;
+
+  const close = () => {
+    menu.classList.remove("aberto");
+    button.setAttribute("aria-expanded", "false");
+  };
+
+  button.addEventListener("click", () => {
+    const open = menu.classList.toggle("aberto");
+    button.setAttribute("aria-expanded", String(open));
+  });
+
+  menu.addEventListener("click", event => {
+    if (event.target.closest("a")) close();
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") close();
+  });
 }
 
-/* ---------- Cartões de projeto ---------- */
-const bonito = n => n.replace(/[-_.]+/g, " ").replace(/(^|\s)\p{L}/gu, c => c.toUpperCase());
+function initViewer() {
+  const dialog = $("#viewer");
+  const frame = $("#viewer-frame");
+  const title = $("#viewer-title");
+  const external = $("#viewer-external");
+  const close = $("#viewer-close");
+  if (!dialog || !frame || !title || !external || !close) return;
 
-function criarCartao(r) {
-  const id = `${r.dono}/${r.nome}`, li = document.createElement("li");
-  li.className = "card";
-  li.innerHTML = `<h3></h3><p>Carregando…</p><ul class="tags" role="list"></ul>
-    <div class="card__acoes"><button type="button" class="btn">Experimentar site</button>
-    <a class="link" target="_blank" rel="noopener">Ver código</a></div>`;
-  $("h3", li).textContent = bonito(r.nome);
-  $(".link", li).href = `https://github.com/${id}`;
-  $(".btn", li).addEventListener("click", () => abrirRepo(id, $("h3", li).textContent));
-  metaRepo(r.dono, r.nome).then(m => {
-    $("p", li).textContent = m.description || "Projeto publicado no GitHub.";
-    [m.language, ...m.topics].filter(Boolean).slice(0, 4).forEach(t => {
-      const i = document.createElement("li"); i.textContent = t; $(".tags", li).append(i);
+  $$(".project-open").forEach(button => {
+    button.addEventListener("click", () => {
+      const project = PROJECTS[button.dataset.project];
+      if (!project) return;
+      title.textContent = project.title;
+      external.href = project.url;
+      frame.src = project.url;
+      dialog.showModal();
     });
-  }).catch(() => { $("p", li).textContent = "Projeto publicado no GitHub."; });
-  return li;
-}
-
-function renderProjetos() {
-  const ul = $("#lista"), repos = REPOSITORIOS.map(x => lerRepo(x)).filter(Boolean);
-  if (!repos.length) {
-    ul.innerHTML = '<li class="vazio">Nenhum projeto ainda. Adicione repositórios na lista REPOSITORIOS, no início do script.js.</li>';
-    return;
-  }
-  repos.forEach(r => ul.append(criarCartao(r)));
-}
-
-/* ---------- Menu mobile ---------- */
-function iniciarMenu() {
-  const btn = $(".menu-btn"), menu = $("#menu");
-  const fechar = () => { menu.classList.remove("aberto"); btn.setAttribute("aria-expanded", "false"); };
-  btn.addEventListener("click", () => {
-    const aberto = menu.classList.toggle("aberto");
-    btn.setAttribute("aria-expanded", String(aberto));
   });
-  menu.addEventListener("click", e => { if (e.target.closest("a")) fechar(); });
-  document.addEventListener("keydown", e => { if (e.key === "Escape") fechar(); });
-}
 
-/* ---------- Formulário de contato (mailto, sem back-end) ---------- */
-function iniciarContato() {
-  $("#contato-form").addEventListener("submit", e => {
-    e.preventDefault();
-    const f = new FormData(e.target);
-    const corpo = `${f.get("msg")}\n\n— ${f.get("nome")} (${f.get("email")})`;
-    location.href = `mailto:paulofelipetavares@protonmail.com?subject=${encodeURIComponent("Contato pelo portfólio")}&body=${encodeURIComponent(corpo)}`;
+  const reset = () => {
+    frame.removeAttribute("src");
+  };
+
+  close.addEventListener("click", () => dialog.close());
+  dialog.addEventListener("close", reset);
+
+  dialog.addEventListener("click", event => {
+    const rect = dialog.getBoundingClientRect();
+    const inside = event.clientX >= rect.left && event.clientX <= rect.right &&
+      event.clientY >= rect.top && event.clientY <= rect.bottom;
+    if (!inside) dialog.close();
   });
-}
-
-/* ============================================================
-   VISUALIZADOR DE REPOSITÓRIOS GITHUB
-   1) Se o repositório tem GitHub Pages, abre o site publicado.
-   2) Senão, lê o index.html do repositório, embute CSS e JS
-      e roda tudo dentro de um iframe isolado (sandbox).
-   ============================================================ */
-const viewer = $("#viewer"), frame = $("#viewer-frame"), status = $("#viewer-status"), stage = $(".stage");
-let atual = null;
-
-function lerRepo(entrada) {
-  const m = entrada.trim().replace(/\.git$/i, "").match(/^(?:https?:\/\/(?:www\.)?github\.com\/)?([\w.-]+)\/([\w.-]+)/i);
-  return m ? { dono: m[1], nome: m[2] } : null;
-}
-
-function mostrarStatus(msg, erro = false) {
-  status.textContent = msg;
-  status.classList.toggle("erro", erro);
-}
-
-async function abrirRepo(entrada, titulo) {
-  const r = lerRepo(entrada);
-  if (!r) return alert("Use o formato usuario/repositorio ou cole o link do GitHub.");
-  atual = { r, titulo: titulo || `${r.dono}/${r.nome}` };
-  $("#viewer-titulo").textContent = atual.titulo;
-  $("#viewer-externo").href = `https://github.com/${r.dono}/${r.nome}`;
-  frame.removeAttribute("src"); frame.removeAttribute("srcdoc");
-  if (!viewer.open) viewer.showModal();
-  mostrarStatus("Carregando o site…");
-  try {
-    const meta = await metaRepo(r.dono, r.nome);
-    if (meta.has_pages) {
-      const url = /github\.io/i.test(meta.homepage || "") ? meta.homepage
-        : `https://${r.dono}.github.io/${r.nome.toLowerCase() === `${r.dono}.github.io`.toLowerCase() ? "" : r.nome + "/"}`;
-      frame.setAttribute("sandbox", "allow-scripts allow-same-origin allow-forms allow-popups allow-modals");
-      frame.src = url;
-      $("#viewer-externo").href = url;
-    } else {
-      // Sem allow-same-origin: o código do repositório não acessa esta página.
-      frame.setAttribute("sandbox", "allow-scripts allow-forms allow-popups allow-modals");
-      frame.srcdoc = await montarSite(r, meta.default_branch);
-    }
-    mostrarStatus("");
-  } catch (err) {
-    mostrarStatus(`Não consegui abrir este repositório. ${err.message || ""} Confira se ele é público e tem um index.html na raiz — ou abra o código no GitHub.`, true);
-  }
-}
-
-async function buscarJSON(url) {
-  const res = await fetch(url, { headers: { Accept: "application/vnd.github+json" } });
-  if (res.status === 404) throw new Error("Repositório não encontrado.");
-  if (res.status === 403) throw new Error("Limite de consultas do GitHub atingido; tente em alguns minutos.");
-  if (!res.ok) throw new Error(`Erro ${res.status}.`);
-  return res.json();
-}
-
-async function montarSite({ dono, nome }, ramo) {
-  const raw = p => `https://raw.githubusercontent.com/${dono}/${nome}/${ramo}/${p}`;
-  const texto = async u => { const r = await fetch(u); if (!r.ok) throw new Error(u); return r.text(); };
-  const externo = u => /^(?:[a-z]+:|\/\/|#)/i.test(u);
-
-  let html;
-  try { html = await texto(raw("index.html")); }
-  catch { throw new Error("index.html não encontrado na raiz."); }
-  const doc = new DOMParser().parseFromString(html, "text/html");
-
-  const corrigirCss = (css, base) => css.replace(/url\(\s*(['"]?)(?![a-z]+:|\/\/|#)([^)'"]+)\1\s*\)/gi,
-    (_, q, p) => `url("${new URL(p, base).href}")`);
-
-  const tarefas = [];
-  $$("link[rel~=stylesheet][href]", doc).forEach(l => {
-    const h = l.getAttribute("href"); if (externo(h)) return;
-    tarefas.push((async () => {
-      try {
-        const u = new URL(h, raw("")).href, s = doc.createElement("style");
-        s.textContent = corrigirCss(await texto(u), u); l.replaceWith(s);
-      } catch { /* arquivo ausente: mantém o restante da página */ }
-    })());
-  });
-  $$("script[src]", doc).forEach(old => {
-    const h = old.getAttribute("src"); if (externo(h)) return;
-    tarefas.push((async () => {
-      try {
-        const s = doc.createElement("script");
-        if (old.type) s.type = old.type;
-        s.textContent = (await texto(new URL(h, raw("")).href)).replace(/<\/script/gi, "<\\/script");
-        old.replaceWith(s);
-      } catch { /* idem */ }
-    })());
-  });
-  await Promise.all(tarefas);
-
-  $$("img[src],source[src],video[src],audio[src]", doc).forEach(e => {
-    const s = e.getAttribute("src"); if (!externo(s)) e.setAttribute("src", new URL(s, raw("")).href);
-  });
-  $$("img[srcset],source[srcset]", doc).forEach(e => e.removeAttribute("srcset"));
-  return "<!DOCTYPE html>" + doc.documentElement.outerHTML;
-}
-
-function iniciarViewer() {
-  $("#repo-form").addEventListener("submit", e => { e.preventDefault(); abrirRepo($("#repo-input").value); });
-  $("#viewer-fechar").addEventListener("click", () => viewer.close());
-  $("#viewer-reload").addEventListener("click", () => atual && abrirRepo(`${atual.r.dono}/${atual.r.nome}`, atual.titulo));
-  viewer.addEventListener("close", () => { frame.removeAttribute("src"); frame.removeAttribute("srcdoc"); mostrarStatus(""); });
-  $$(".devices button").forEach(b => b.addEventListener("click", () => {
-    stage.dataset.device = b.dataset.device;
-    $$(".devices button").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
-  }));
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  $("#ano").textContent = new Date().getFullYear();
-  renderProjetos(); iniciarMenu(); iniciarContato(); iniciarViewer();
+  const year = $("#ano");
+  if (year) year.textContent = new Date().getFullYear();
+  initMenu();
+  initViewer();
 });
