@@ -1,285 +1,87 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Paulo Felipe — Web Design & Front-end</title>
-  <meta name="description" content="Portfólio de Paulo Felipe: web design, UI/UX e front-end. Projetos digitais com foco em clareza, experiência e execução.">
-  <meta name="theme-color" content="#f4f2ed">
-  <link rel="preload" as="image" href="img/paulo.webp">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/script.js" defer></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Paulo Felipe — Web design e front-end</title>
+<meta name="description" content="Portfólio de Paulo Felipe: sites claros, rápidos e responsivos.">
+<meta name="theme-color" content="#0e0c0b">
+<meta property="og:title" content="Paulo Felipe — Web design e front-end">
+<meta property="og:image" content="img/paulo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700&display=swap">
+<link rel="preload" as="image" href="img/paulo.webp">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/script.js" defer></script>
 </head>
 <body>
-  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<a class="skip" href="#trabalhos">Pular para os trabalhos</a>
 
-  <header class="topo">
-    <div class="shell topo__in">
-      <a class="marca" href="#inicio" aria-label="Paulo Felipe — início">
-        <span class="marca__mono">PF</span>
-        <span class="marca__nome">Paulo Felipe</span>
-      </a>
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="#inicio">Paulo Felipe</a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#trabalhos">Trabalhos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </div>
+</header>
 
-      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">
-        <span>Menu</span>
-        <i aria-hidden="true"></i>
-      </button>
-
-      <nav id="menu" class="menu" aria-label="Principal">
-        <a href="#trabalhos">Trabalhos</a>
-        <a href="#processo">Processo</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#contato">Contato</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="conteudo">
-    <section id="inicio" class="hero shell">
-      <div class="hero__tag">
-        <span class="dot" aria-hidden="true"></span>
-        Web design · UI/UX · Front-end
-      </div>
-
-      <div class="hero__grid">
-        <h1>Sites bem<br>resolvidos.</h1>
-
-        <div class="hero__aside">
-          <p>Eu desenho e desenvolvo interfaces que parecem simples porque a hierarquia, o fluxo e os detalhes foram pensados antes.</p>
-          <a class="text-link" href="#trabalhos">Ver trabalhos <span aria-hidden="true">↓</span></a>
-        </div>
-      </div>
-
-      <div class="hero__footer">
-        <span>Design de interface</span>
-        <span>Desenvolvimento front-end</span>
-        <span>Responsividade</span>
-        <span>Acessibilidade</span>
-      </div>
-    </section>
-
-    <section id="trabalhos" class="trabalhos" aria-labelledby="titulo-trabalhos">
-      <div class="shell trabalhos__head">
-        <p class="kicker">Trabalhos selecionados</p>
-        <h2 id="titulo-trabalhos">Dois projetos.<br>Duas lógicas de experiência.</h2>
-        <p>Em vez de uma galeria de miniaturas, cada projeto aparece com contexto, decisões e uma prévia real da interface.</p>
-      </div>
-
-      <article class="case case--psico">
-        <div class="shell">
-          <div class="case__meta">
-            <span>01</span>
-            <span>Site institucional</span>
-            <span>UI/UX + Front-end</span>
-            <span>2026</span>
-          </div>
-
-          <div class="case__intro">
-            <div>
-              <p class="kicker">Marina Azevedo · Psicóloga Clínica</p>
-              <h3>Confiança antes da conversão.</h3>
-            </div>
-            <div class="case__summary">
-              <p>Site profissional para psicologia clínica, estruturado para apresentar a profissional, explicar a abordagem terapêutica e levar ao contato sem transformar uma decisão sensível em uma página agressivamente comercial.</p>
-              <ul class="tokens" role="list">
-                <li>Arquitetura de informação</li>
-                <li>Design responsivo</li>
-                <li>Acessibilidade</li>
-                <li>HTML / CSS / JS</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="case__preview">
-            <div class="browser" aria-label="Prévia do site Marina Azevedo">
-              <div class="browser__bar" aria-hidden="true">
-                <span class="browser__lights"><i></i><i></i><i></i></span>
-                <span class="browser__url">opaulofelipe.github.io/psicologa</span>
-                <span class="browser__mark">↗</span>
-              </div>
-              <div class="browser__viewport">
-                <iframe src="https://opaulofelipe.github.io/psicologa/" title="Prévia do site da psicóloga Marina Azevedo" tabindex="-1" loading="lazy"></iframe>
-              </div>
-            </div>
-          </div>
-
-          <div class="case__decisions">
-            <div>
-              <span class="label">Problema</span>
-              <p>Transmitir acolhimento e credibilidade sem recorrer ao visual clínico genérico nem sobrecarregar a página com informação.</p>
-            </div>
-            <div>
-              <span class="label">Direção</span>
-              <p>Hierarquia editorial, fotografia como elemento humano e chamadas de ação distribuídas no momento certo da leitura.</p>
-            </div>
-            <div>
-              <span class="label">Experiência</span>
-              <p>Navegação simples, FAQ nativo, conteúdo legível e versão mobile tratada como experiência principal, não adaptação tardia.</p>
-            </div>
-          </div>
-
-          <div class="case__actions">
-            <button class="project-open" type="button" data-project="psicologa">Abrir projeto <span aria-hidden="true">↗</span></button>
-            <a href="https://github.com/opaulofelipe/psicologa" target="_blank" rel="noopener">Ver código no GitHub <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-      </article>
-
-      <article class="case case--rupestre">
-        <div class="shell">
-          <div class="case__meta">
-            <span>02</span>
-            <span>Experiência interativa</span>
-            <span>UI/UX + Front-end</span>
-            <span>2026</span>
-          </div>
-
-          <div class="case__intro">
-            <div>
-              <p class="kicker">Vestígios · Atlas de Arte Rupestre</p>
-              <h3>Informação histórica que se explora.</h3>
-            </div>
-            <div class="case__summary">
-              <p>Atlas interativo de sítios de arte rupestre. O mapa é a interface principal: a navegação espacial conduz a cartões com cronologia, localização, descrição, referência e fotografia.</p>
-              <ul class="tokens" role="list">
-                <li>Mapa interativo</li>
-                <li>Visualização de dados</li>
-                <li>Interação por toque</li>
-                <li>JavaScript</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="case__preview case__preview--dark">
-            <div class="browser browser--dark" aria-label="Prévia do projeto Vestígios">
-              <div class="browser__bar" aria-hidden="true">
-                <span class="browser__lights"><i></i><i></i><i></i></span>
-                <span class="browser__url">opaulofelipe.github.io/artesrupestres</span>
-                <span class="browser__mark">↗</span>
-              </div>
-              <div class="browser__viewport">
-                <iframe src="https://opaulofelipe.github.io/artesrupestres/" title="Prévia do atlas interativo Vestígios" tabindex="-1" loading="lazy"></iframe>
-              </div>
-            </div>
-          </div>
-
-          <div class="case__decisions">
-            <div>
-              <span class="label">Problema</span>
-              <p>Organizar dezenas de sítios em escala mundial sem transformar o conteúdo em uma lista extensa e pouco explorável.</p>
-            </div>
-            <div>
-              <span class="label">Direção</span>
-              <p>O mapa ocupa o centro da experiência; controles permanecem discretos e o detalhe aparece somente quando o usuário escolhe um ponto.</p>
-            </div>
-            <div>
-              <span class="label">Experiência</span>
-              <p>Zoom, arraste, seleção de sítios, cartões contextuais e conteúdo histórico apresentados sem tirar o usuário do mapa.</p>
-            </div>
-          </div>
-
-          <div class="case__actions">
-            <button class="project-open" type="button" data-project="artesrupestres">Abrir projeto <span aria-hidden="true">↗</span></button>
-            <a href="https://github.com/opaulofelipe/artesrupestres" target="_blank" rel="noopener">Ver código no GitHub <span aria-hidden="true">↗</span></a>
-          </div>
-        </div>
-      </article>
-    </section>
-
-    <section id="processo" class="processo shell" aria-labelledby="titulo-processo">
-      <div class="processo__head">
-        <p class="kicker">Como eu trabalho</p>
-        <h2 id="titulo-processo">Menos decoração.<br>Mais decisão.</h2>
-      </div>
-
-      <ol class="processo__lista">
-        <li>
-          <span>01</span>
-          <h3>Estrutura</h3>
-          <p>Antes da aparência, organizo conteúdo, prioridade, percurso e ação principal.</p>
-        </li>
-        <li>
-          <span>02</span>
-          <h3>Interface</h3>
-          <p>Tipografia, contraste, espaçamento e componentes entram para tornar a estrutura evidente.</p>
-        </li>
-        <li>
-          <span>03</span>
-          <h3>Implementação</h3>
-          <p>O front-end preserva a intenção do design em diferentes telas, interações e formas de acesso.</p>
-        </li>
-      </ol>
-    </section>
-
-    <section id="sobre" class="sobre" aria-labelledby="titulo-sobre">
-      <div class="shell sobre__grid">
-        <div class="sobre__foto">
-          <img src="img/paulo.webp" width="900" height="900" alt="Ilustração de Paulo Felipe">
-        </div>
-
-        <div class="sobre__texto">
-          <p class="kicker">Sobre</p>
-          <h2 id="titulo-sobre">Paulo Felipe.</h2>
-          <p class="sobre__lead">Designer com base em design gráfico, programação e análise de dados.</p>
-          <p>Trabalho principalmente na interseção entre interface e front-end. Isso me permite decidir visualmente sem ignorar como a página realmente será construída, carregada e usada.</p>
-
-          <div class="sobre__skills" aria-label="Áreas de atuação">
-            <span>Web design</span>
-            <span>UI/UX</span>
-            <span>HTML/CSS</span>
-            <span>JavaScript</span>
-            <span>Design responsivo</span>
-            <span>Acessibilidade</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contato" class="contato">
-      <div class="shell contato__grid">
-        <div>
-          <p class="kicker">Contato</p>
-          <h2>Precisa de um site<br>que faça sentido?</h2>
-        </div>
-
-        <div class="contato__links">
-          <a href="mailto:paulofelipetavares@protonmail.com">
-            <span>E-mail</span>
-            <strong>paulofelipetavares@protonmail.com</strong>
-            <i aria-hidden="true">↗</i>
-          </a>
-          <a href="https://t.me/opaulofelipe" target="_blank" rel="noopener">
-            <span>Telegram</span>
-            <strong>@opaulofelipe</strong>
-            <i aria-hidden="true">↗</i>
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="rodape">
-    <div class="shell rodape__in">
-      <p>© <span id="ano">2026</span> Paulo Felipe</p>
-      <p>Design + código</p>
-      <a href="#inicio">Topo ↑</a>
-    </div>
-  </footer>
-
-  <dialog id="viewer" aria-labelledby="viewer-title">
-    <div class="viewer__top">
-      <div>
-        <span class="viewer__eyebrow">Projeto ao vivo</span>
-        <strong id="viewer-title"></strong>
-      </div>
-      <div class="viewer__actions">
-        <a id="viewer-external" href="#" target="_blank" rel="noopener">Abrir em nova aba ↗</a>
-        <button id="viewer-close" type="button" aria-label="Fechar projeto">Fechar ×</button>
+<main>
+  <section id="inicio" class="wrap hero">
+    <div>
+      <h1>Sites claros,<br>rápidos e <em>bem feitos.</em></h1>
+      <p>Web design e front-end.</p>
+      <div class="cta">
+        <a class="btn btn--main" href="#trabalhos">Ver trabalhos</a>
+        <a class="btn" href="#contato">Contato</a>
       </div>
     </div>
-    <div class="viewer__body">
-      <iframe id="viewer-frame" title="Projeto aberto ao vivo"></iframe>
+    <figure class="hero__img reveal">
+      <img src="img/paulo.webp" width="900" height="900" alt="Ilustração de Paulo Felipe" fetchpriority="high">
+    </figure>
+  </section>
+
+  <section id="trabalhos" class="wrap sec" aria-labelledby="t-trabalhos">
+    <div class="sec__head">
+      <h2 id="t-trabalhos">Trabalhos</h2>
+      <span class="count" id="contagem" aria-live="polite"></span>
     </div>
-  </dialog>
+    <div id="grade" class="grade"></div>
+    <noscript><p class="vazio">Ative o JavaScript para ver os projetos.</p></noscript>
+  </section>
+
+  <section id="contato" class="contato">
+    <div class="wrap">
+      <h2>Vamos conversar?</h2>
+      <div class="links">
+        <a href="mailto:paulofelipetavares@protonmail.com"><span>paulofelipetavares@protonmail.com</span><small>E-mail ↗</small></a>
+        <a href="https://t.me/opaulofelipe" target="_blank" rel="noopener"><span>@opaulofelipe</span><small>Telegram ↗</small></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape"><div class="wrap"><span>© <span id="ano">2026</span> Paulo Felipe</span><a href="#inicio">Topo ↑</a></div></footer>
+
+<dialog id="viewer" aria-labelledby="viewer-title">
+  <div class="v-bar">
+    <strong id="viewer-title"></strong>
+    <div class="v-devices" role="group" aria-label="Tamanho da tela">
+      <button type="button" data-w="100%" aria-pressed="true">Desktop</button>
+      <button type="button" data-w="820px" aria-pressed="false">Tablet</button>
+      <button type="button" data-w="390px" aria-pressed="false">Celular</button>
+    </div>
+    <div class="v-actions">
+      <button type="button" id="v-prev" aria-label="Projeto anterior">←</button>
+      <button type="button" id="v-next" aria-label="Próximo projeto">→</button>
+      <a id="v-ext" href="#" target="_blank" rel="noopener">Nova aba ↗</a>
+      <a id="v-gh" href="#" target="_blank" rel="noopener">Código ↗</a>
+      <button type="button" id="v-close" aria-label="Fechar">✕</button>
+    </div>
+  </div>
+  <div class="v-stage"><iframe id="v-frame" title="Projeto aberto"></iframe></div>
+</dialog>
 </body>
 </html>
