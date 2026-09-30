@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Paulo Felipe — Webdesigner</title>
-  <meta name="description" content="Portfólio de Paulo Felipe, webdesigner e front-end. Interfaces claras, rápidas e acessíveis, com projetos que podem ser experimentados ao vivo.">
-  <meta name="theme-color" content="#f0eee7">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Paulo Felipe — Web Design & Front-end</title>
+  <meta name="description" content="Portfólio de Paulo Felipe: web design, UI/UX e front-end. Projetos digitais com foco em clareza, experiência e execução.">
+  <meta name="theme-color" content="#f4f2ed">
   <link rel="preload" as="image" href="img/paulo.webp">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/script.js" defer></script>
@@ -14,212 +14,271 @@
   <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 
   <header class="topo">
-    <div class="wrap topo__in">
+    <div class="shell topo__in">
       <a class="marca" href="#inicio" aria-label="Paulo Felipe — início">
-        <span class="marca__sinal" aria-hidden="true"></span>
-        <span>Paulo Felipe</span>
+        <span class="marca__mono">PF</span>
+        <span class="marca__nome">Paulo Felipe</span>
       </a>
-
-      <p class="topo__descriptor" aria-hidden="true">Web design · UI/UX · Front-end</p>
 
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">
         <span>Menu</span>
+        <i aria-hidden="true"></i>
       </button>
 
       <nav id="menu" class="menu" aria-label="Principal">
-        <a href="#projetos">Projetos</a>
-        <a href="#servicos">Serviços</a>
+        <a href="#trabalhos">Trabalhos</a>
+        <a href="#processo">Processo</a>
         <a href="#sobre">Sobre</a>
-        <a href="#contato">Contato <span aria-hidden="true">↗</span></a>
+        <a href="#contato">Contato</a>
       </nav>
     </div>
   </header>
 
   <main id="conteudo">
-    <section id="inicio" class="hero wrap" aria-labelledby="hero-title">
-      <div class="hero__meta" aria-hidden="true">
-        <span>Portfólio / 2026</span>
-        <span>Rio de Janeiro · Brasil</span>
+    <section id="inicio" class="hero shell">
+      <div class="hero__tag">
+        <span class="dot" aria-hidden="true"></span>
+        Web design · UI/UX · Front-end
       </div>
 
-      <div class="hero__txt">
-        <p class="eyebrow">Design digital com estrutura</p>
-        <h1 id="hero-title">
-          <span>Sites com</span>
-          <em>clareza, ritmo</em>
-          <span>e acabamento.</span>
-        </h1>
-        <p class="lead">Crio interfaces que equilibram direção visual, usabilidade e código enxuto. O resultado precisa ser bonito — mas, antes de tudo, precisa funcionar muito bem.</p>
-        <div class="acoes">
-          <a class="btn" href="#projetos">Ver projetos <span aria-hidden="true">↓</span></a>
-          <a class="link-seta" href="#contato">Iniciar um projeto <span aria-hidden="true">↗</span></a>
+      <div class="hero__grid">
+        <h1>Sites bem<br>resolvidos.</h1>
+
+        <div class="hero__aside">
+          <p>Eu desenho e desenvolvo interfaces que parecem simples porque a hierarquia, o fluxo e os detalhes foram pensados antes.</p>
+          <a class="text-link" href="#trabalhos">Ver trabalhos <span aria-hidden="true">↓</span></a>
         </div>
       </div>
 
-      <figure class="hero__foto">
-        <div class="hero__frame">
-          <img src="img/paulo.webp" width="900" height="900" alt="Ilustração de Paulo Felipe: homem de barba e bigode, cabelo castanho, camisa preta estampada, sorrindo de leve.">
-          <span class="hero__index" aria-hidden="true">01</span>
-        </div>
-        <figcaption>
-          <span>Paulo Felipe</span>
-          <span>Designer &amp; developer</span>
-        </figcaption>
-      </figure>
-
-      <div class="hero__rodape" aria-hidden="true">
-        <span>Interface</span>
-        <span>Identidade</span>
-        <span>Front-end</span>
+      <div class="hero__footer">
+        <span>Design de interface</span>
+        <span>Desenvolvimento front-end</span>
+        <span>Responsividade</span>
         <span>Acessibilidade</span>
       </div>
     </section>
 
-    <section id="projetos" class="sec sec--projetos" aria-labelledby="t-projetos">
-      <div class="wrap">
-        <div class="sec__cabecalho">
-          <p class="sec__numero" aria-hidden="true">01</p>
-          <div>
-            <p class="eyebrow">Trabalho selecionado</p>
-            <h2 id="t-projetos">Projetos que você pode usar, não só olhar.</h2>
-          </div>
-          <p class="sec__intro">Os projetos abrem dentro do próprio portfólio em diferentes larguras de tela. Também é possível testar qualquer repositório público do GitHub.</p>
-        </div>
-
-        <form id="repo-form" class="repo-form" autocomplete="off">
-          <label for="repo-input">Testar um repositório</label>
-          <div class="repo-form__campo">
-            <span class="repo-form__prefixo" aria-hidden="true">github.com/</span>
-            <input id="repo-input" name="repo" type="text" placeholder="usuario/repositorio" required>
-            <button class="btn btn--dark" type="submit">Abrir site <span aria-hidden="true">↗</span></button>
-          </div>
-        </form>
-
-        <ul id="lista" class="grade grade--projetos" role="list"></ul>
+    <section id="trabalhos" class="trabalhos" aria-labelledby="titulo-trabalhos">
+      <div class="shell trabalhos__head">
+        <p class="kicker">Trabalhos selecionados</p>
+        <h2 id="titulo-trabalhos">Dois projetos.<br>Duas lógicas de experiência.</h2>
+        <p>Em vez de uma galeria de miniaturas, cada projeto aparece com contexto, decisões e uma prévia real da interface.</p>
       </div>
+
+      <article class="case case--psico">
+        <div class="shell">
+          <div class="case__meta">
+            <span>01</span>
+            <span>Site institucional</span>
+            <span>UI/UX + Front-end</span>
+            <span>2026</span>
+          </div>
+
+          <div class="case__intro">
+            <div>
+              <p class="kicker">Marina Azevedo · Psicóloga Clínica</p>
+              <h3>Confiança antes da conversão.</h3>
+            </div>
+            <div class="case__summary">
+              <p>Site profissional para psicologia clínica, estruturado para apresentar a profissional, explicar a abordagem terapêutica e levar ao contato sem transformar uma decisão sensível em uma página agressivamente comercial.</p>
+              <ul class="tokens" role="list">
+                <li>Arquitetura de informação</li>
+                <li>Design responsivo</li>
+                <li>Acessibilidade</li>
+                <li>HTML / CSS / JS</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="case__preview">
+            <div class="browser" aria-label="Prévia do site Marina Azevedo">
+              <div class="browser__bar" aria-hidden="true">
+                <span class="browser__lights"><i></i><i></i><i></i></span>
+                <span class="browser__url">opaulofelipe.github.io/psicologa</span>
+                <span class="browser__mark">↗</span>
+              </div>
+              <div class="browser__viewport">
+                <iframe src="https://opaulofelipe.github.io/psicologa/" title="Prévia do site da psicóloga Marina Azevedo" tabindex="-1" loading="lazy"></iframe>
+              </div>
+            </div>
+          </div>
+
+          <div class="case__decisions">
+            <div>
+              <span class="label">Problema</span>
+              <p>Transmitir acolhimento e credibilidade sem recorrer ao visual clínico genérico nem sobrecarregar a página com informação.</p>
+            </div>
+            <div>
+              <span class="label">Direção</span>
+              <p>Hierarquia editorial, fotografia como elemento humano e chamadas de ação distribuídas no momento certo da leitura.</p>
+            </div>
+            <div>
+              <span class="label">Experiência</span>
+              <p>Navegação simples, FAQ nativo, conteúdo legível e versão mobile tratada como experiência principal, não adaptação tardia.</p>
+            </div>
+          </div>
+
+          <div class="case__actions">
+            <button class="project-open" type="button" data-project="psicologa">Abrir projeto <span aria-hidden="true">↗</span></button>
+            <a href="https://github.com/opaulofelipe/psicologa" target="_blank" rel="noopener">Ver código no GitHub <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="case case--rupestre">
+        <div class="shell">
+          <div class="case__meta">
+            <span>02</span>
+            <span>Experiência interativa</span>
+            <span>UI/UX + Front-end</span>
+            <span>2026</span>
+          </div>
+
+          <div class="case__intro">
+            <div>
+              <p class="kicker">Vestígios · Atlas de Arte Rupestre</p>
+              <h3>Informação histórica que se explora.</h3>
+            </div>
+            <div class="case__summary">
+              <p>Atlas interativo de sítios de arte rupestre. O mapa é a interface principal: a navegação espacial conduz a cartões com cronologia, localização, descrição, referência e fotografia.</p>
+              <ul class="tokens" role="list">
+                <li>Mapa interativo</li>
+                <li>Visualização de dados</li>
+                <li>Interação por toque</li>
+                <li>JavaScript</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="case__preview case__preview--dark">
+            <div class="browser browser--dark" aria-label="Prévia do projeto Vestígios">
+              <div class="browser__bar" aria-hidden="true">
+                <span class="browser__lights"><i></i><i></i><i></i></span>
+                <span class="browser__url">opaulofelipe.github.io/artesrupestres</span>
+                <span class="browser__mark">↗</span>
+              </div>
+              <div class="browser__viewport">
+                <iframe src="https://opaulofelipe.github.io/artesrupestres/" title="Prévia do atlas interativo Vestígios" tabindex="-1" loading="lazy"></iframe>
+              </div>
+            </div>
+          </div>
+
+          <div class="case__decisions">
+            <div>
+              <span class="label">Problema</span>
+              <p>Organizar dezenas de sítios em escala mundial sem transformar o conteúdo em uma lista extensa e pouco explorável.</p>
+            </div>
+            <div>
+              <span class="label">Direção</span>
+              <p>O mapa ocupa o centro da experiência; controles permanecem discretos e o detalhe aparece somente quando o usuário escolhe um ponto.</p>
+            </div>
+            <div>
+              <span class="label">Experiência</span>
+              <p>Zoom, arraste, seleção de sítios, cartões contextuais e conteúdo histórico apresentados sem tirar o usuário do mapa.</p>
+            </div>
+          </div>
+
+          <div class="case__actions">
+            <button class="project-open" type="button" data-project="artesrupestres">Abrir projeto <span aria-hidden="true">↗</span></button>
+            <a href="https://github.com/opaulofelipe/artesrupestres" target="_blank" rel="noopener">Ver código no GitHub <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+      </article>
     </section>
 
-    <section id="servicos" class="sec sec--servicos" aria-labelledby="t-servicos">
-      <div class="wrap">
-        <div class="sec__cabecalho sec__cabecalho--compacto">
-          <p class="sec__numero" aria-hidden="true">02</p>
-          <div>
-            <p class="eyebrow">O que eu faço</p>
-            <h2 id="t-servicos">Do sistema visual ao código.</h2>
-          </div>
-        </div>
-
-        <ol class="servicos" role="list">
-          <li>
-            <span class="servicos__numero">01</span>
-            <h3>Design de interface</h3>
-            <p>Arquitetura visual, wireframes, layouts e protótipos orientados à jornada real de quem usa o produto.</p>
-            <span class="servicos__seta" aria-hidden="true">↗</span>
-          </li>
-          <li>
-            <span class="servicos__numero">02</span>
-            <h3>Front-end</h3>
-            <p>HTML semântico, CSS moderno e JavaScript enxuto, com atenção a responsividade, desempenho e manutenção.</p>
-            <span class="servicos__seta" aria-hidden="true">↗</span>
-          </li>
-          <li>
-            <span class="servicos__numero">03</span>
-            <h3>Identidade visual</h3>
-            <p>Tipografia, cor, composição e sistemas gráficos que mantêm a marca coerente em diferentes contextos e telas.</p>
-            <span class="servicos__seta" aria-hidden="true">↗</span>
-          </li>
-          <li>
-            <span class="servicos__numero">04</span>
-            <h3>Design orientado a dados</h3>
-            <p>Métricas e análise aplicadas ao processo de design para transformar decisões estéticas em decisões justificáveis.</p>
-            <span class="servicos__seta" aria-hidden="true">↗</span>
-          </li>
-        </ol>
+    <section id="processo" class="processo shell" aria-labelledby="titulo-processo">
+      <div class="processo__head">
+        <p class="kicker">Como eu trabalho</p>
+        <h2 id="titulo-processo">Menos decoração.<br>Mais decisão.</h2>
       </div>
+
+      <ol class="processo__lista">
+        <li>
+          <span>01</span>
+          <h3>Estrutura</h3>
+          <p>Antes da aparência, organizo conteúdo, prioridade, percurso e ação principal.</p>
+        </li>
+        <li>
+          <span>02</span>
+          <h3>Interface</h3>
+          <p>Tipografia, contraste, espaçamento e componentes entram para tornar a estrutura evidente.</p>
+        </li>
+        <li>
+          <span>03</span>
+          <h3>Implementação</h3>
+          <p>O front-end preserva a intenção do design em diferentes telas, interações e formas de acesso.</p>
+        </li>
+      </ol>
     </section>
 
-    <section id="sobre" class="sec sec--sobre" aria-labelledby="t-sobre">
-      <div class="wrap sobre">
-        <div class="sobre__principal">
-          <p class="sec__numero" aria-hidden="true">03</p>
-          <p class="eyebrow">Sobre</p>
-          <h2 id="t-sobre">Design sem separar forma de função.</h2>
-          <p class="sobre__manifesto">“Prefiro uma interface que pareça inevitável: cada elemento está ali porque tem uma razão.”</p>
+    <section id="sobre" class="sobre" aria-labelledby="titulo-sobre">
+      <div class="shell sobre__grid">
+        <div class="sobre__foto">
+          <img src="img/paulo.webp" width="900" height="900" alt="Ilustração de Paulo Felipe">
         </div>
 
         <div class="sobre__texto">
-          <p>Sou Paulo Felipe. Minha formação em design gráfico se encontra com programação e análise de dados para construir produtos digitais com personalidade visual e lógica de uso.</p>
-          <p>O trabalho passa por hierarquia, fluxo, consistência, legibilidade e detalhes de interação. O objetivo não é decorar uma página: é organizar informação e tornar a experiência mais precisa.</p>
-        </div>
+          <p class="kicker">Sobre</p>
+          <h2 id="titulo-sobre">Paulo Felipe.</h2>
+          <p class="sobre__lead">Designer com base em design gráfico, programação e análise de dados.</p>
+          <p>Trabalho principalmente na interseção entre interface e front-end. Isso me permite decidir visualmente sem ignorar como a página realmente será construída, carregada e usada.</p>
 
-        <div class="sobre__formacao">
-          <h3>Formação</h3>
-          <ul class="formacao" role="list">
-            <li><span>Design Gráfico</span><strong>Alura</strong></li>
-            <li><span>Ciência de Dados</span><strong>Alura</strong></li>
-            <li><span>JavaScript Impressionador</span><strong>Hashtag Treinamentos</strong></li>
-          </ul>
+          <div class="sobre__skills" aria-label="Áreas de atuação">
+            <span>Web design</span>
+            <span>UI/UX</span>
+            <span>HTML/CSS</span>
+            <span>JavaScript</span>
+            <span>Design responsivo</span>
+            <span>Acessibilidade</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="contato" class="sec sec--contato" aria-labelledby="t-contato">
-      <div class="wrap contato">
-        <div class="contato__intro">
-          <p class="sec__numero" aria-hidden="true">04</p>
-          <p class="eyebrow">Contato</p>
-          <h2 id="t-contato">Tem um projeto em mente?</h2>
-          <p class="contato__chamada">Conte o contexto, o problema e o que precisa estar pronto. O resto a gente organiza.</p>
-          <div class="contato__direto">
-            <a href="mailto:paulofelipetavares@protonmail.com">paulofelipetavares@protonmail.com <span aria-hidden="true">↗</span></a>
-            <a href="https://t.me/opaulofelipe" target="_blank" rel="noopener">Telegram @opaulofelipe <span aria-hidden="true">↗</span></a>
-          </div>
+    <section id="contato" class="contato">
+      <div class="shell contato__grid">
+        <div>
+          <p class="kicker">Contato</p>
+          <h2>Precisa de um site<br>que faça sentido?</h2>
         </div>
 
-        <form id="contato-form" class="form">
-          <div class="form__linha">
-            <label for="c-nome">Nome</label>
-            <input id="c-nome" name="nome" type="text" autocomplete="name" placeholder="Como posso te chamar?" required>
-          </div>
-          <div class="form__linha">
-            <label for="c-email">E-mail</label>
-            <input id="c-email" name="email" type="email" autocomplete="email" placeholder="voce@exemplo.com" required>
-          </div>
-          <div class="form__linha">
-            <label for="c-msg">Sobre o projeto</label>
-            <textarea id="c-msg" name="msg" rows="5" placeholder="O que você quer criar ou melhorar?" required></textarea>
-          </div>
-          <button class="btn btn--light" type="submit">Enviar por e-mail <span aria-hidden="true">↗</span></button>
-        </form>
+        <div class="contato__links">
+          <a href="mailto:paulofelipetavares@protonmail.com">
+            <span>E-mail</span>
+            <strong>paulofelipetavares@protonmail.com</strong>
+            <i aria-hidden="true">↗</i>
+          </a>
+          <a href="https://t.me/opaulofelipe" target="_blank" rel="noopener">
+            <span>Telegram</span>
+            <strong>@opaulofelipe</strong>
+            <i aria-hidden="true">↗</i>
+          </a>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="rodape">
-    <div class="wrap rodape__in">
-      <p>© <span id="ano">2026</span> Paulo Felipe.</p>
-      <p>Design e desenvolvimento em HTML, CSS e JavaScript.</p>
-      <a href="#inicio">Voltar ao topo ↑</a>
+    <div class="shell rodape__in">
+      <p>© <span id="ano">2026</span> Paulo Felipe</p>
+      <p>Design + código</p>
+      <a href="#inicio">Topo ↑</a>
     </div>
   </footer>
 
-  <dialog id="viewer" aria-label="Visualizador de site">
-    <div class="viewer__bar">
-      <strong id="viewer-titulo" class="viewer__titulo"></strong>
-      <div class="devices" role="group" aria-label="Tamanho da tela">
-        <button type="button" data-device="desktop" aria-pressed="true">Desktop</button>
-        <button type="button" data-device="tablet" aria-pressed="false">Tablet</button>
-        <button type="button" data-device="mobile" aria-pressed="false">Celular</button>
+  <dialog id="viewer" aria-labelledby="viewer-title">
+    <div class="viewer__top">
+      <div>
+        <span class="viewer__eyebrow">Projeto ao vivo</span>
+        <strong id="viewer-title"></strong>
       </div>
-      <div class="viewer__acoes">
-        <button type="button" id="viewer-reload">Recarregar</button>
-        <a id="viewer-externo" href="#" target="_blank" rel="noopener">Nova aba ↗</a>
-        <button type="button" id="viewer-fechar">Fechar ×</button>
+      <div class="viewer__actions">
+        <a id="viewer-external" href="#" target="_blank" rel="noopener">Abrir em nova aba ↗</a>
+        <button id="viewer-close" type="button" aria-label="Fechar projeto">Fechar ×</button>
       </div>
     </div>
-    <div class="stage" data-device="desktop">
-      <p id="viewer-status" role="status" aria-live="polite"></p>
-      <iframe id="viewer-frame" title="Site aberto do GitHub" loading="lazy" referrerpolicy="no-referrer"></iframe>
+    <div class="viewer__body">
+      <iframe id="viewer-frame" title="Projeto aberto ao vivo"></iframe>
     </div>
   </dialog>
 </body>
