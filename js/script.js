@@ -12,9 +12,8 @@ const GITHUB_USER = "opaulofelipe";
 const REPOS = [
   "psicologa",
   "artesrupestres",
-  "advogado"
+  "advogado",
    "globoterrestre",
-   "
   // "nome-do-novo-repositorio",
 ];
 /* ======================================================== */
