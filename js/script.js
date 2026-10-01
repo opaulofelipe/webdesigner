@@ -15,6 +15,7 @@ const REPOS = [
   "advogado",
    "globoterrestre",
    "personaltrainer",
+   "geeknews",
   // "nome-do-novo-repositorio",
 ];
 /* ======================================================== */
