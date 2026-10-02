@@ -18,6 +18,7 @@ const REPOS = [
    "geeknews",
    "cursodehistoria",
    "esteticalume",
+   "clinicaodonto",
   // "nome-do-novo-repositorio",
 ];
 /* ======================================================== */
