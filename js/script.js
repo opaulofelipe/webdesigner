@@ -11,7 +11,7 @@ document.documentElement.classList.add("js");
 const GITHUB_USER = "opaulofelipe";
 const REPOS = [
   "psicologa",
-  "artesrupestres",
+  "arterupestremundo",
   "advogado",
    "globoterrestre",
    "personaltrainer",
